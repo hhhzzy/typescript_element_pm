@@ -1,15 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-Vue.use(Vuex)
+import { IUserState } from './modules/user'
+import { IPermissionState } from './modules/permission'
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+Vue.use(Vuex)
+export interface IRootState {
+    user: IUserState
+    permission: IPermissionState
+}
+export default new Vuex.Store<IRootState>({
+    // state: {
+    // },
+    // mutations: {
+    // },
+    // actions: {
+    // },
+    // modules: {
+    //     IUserState
+    // }
 })
