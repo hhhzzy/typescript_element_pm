@@ -12,7 +12,7 @@ Vue.use(VueRouter)
  *  alwaysShow: false // 一个路由下面有多个子路由的时候自动变成嵌套模式。小于一个或者没有的时候只显示跟路由。设置为true的话就会，一个子路由也会显示成嵌套路由。默认为false
  *  hidden:true  是否在菜单栏显示，true：隐藏  false：显示。默认为：false
  *  affix：tag固定在导航上面，不可删除
- *
+ *  activeMenu：详情页的时候菜单栏高亮
  * }
  * redirect：noredirect // 链接不能跳转
  * name: 'router-name' // 设定路由的名字，一定要填写不然使用<keep-alive>时会出现各种问题

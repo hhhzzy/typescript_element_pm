@@ -18,8 +18,18 @@ class TagsNav extends VuexModule implements ITagsNavState {
     public cachedTag: (string | undefined)[] = ['Level_1']
     @Mutation
     private ADD_VISITED_TAG(route: ITagNav) {
-        // 判断当前点击的路由是否已经存在
-        if (this.visitedTag.some(v => v.path === route.path)) return
+        // 判断当前点击的路由是否已经存在，并且当前点击路由的参数是否和已经存在的路由参数相同。不同则更新
+        const bool = this.visitedTag.some((v, index) => v.path === route.path)
+        if (bool) {
+            this.visitedTag = this.visitedTag.map(item => {
+                if (item.path === route.path) {
+                    item.query = route.query
+                    item.fullPath = route.fullPath
+                }
+                return item
+            })
+            return
+        }
         this.visitedTag.push(
             Object.assign({}, route, {
                 title: route.meta.title || 'no-name'
